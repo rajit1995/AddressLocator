@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container-fluid">
+  <form action="{{ url_for('add') }}" method="post">
+    {{ form.csrf_token }}
+    <div class="row">
+      <h1><B>ROY MAPS</B></h1>  
+</form>
+	   
+    </div>
+    
+<div class="row">
+      <br> <p> </p>
+    </div>
+<div class="card">
+<div class="card-body">
+	<a href="{{url_for('map')}}" class="btn btn-primary">Open Map</a>
+ </div>
+</div>
+	
+
+
+
+{% for task in tasks %}
+<div class="card">
+	<form action="{{ url_for('add') }}" method="post">
+    {{ form.csrf_token }}
+      <div class="card-body">
+
+	
+
+
+	<div class="row">			<p><b>PLACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+	<table border="1", cellspacing ="2",cellpadding ="5" , width="30%, colspan="3" , class="table-border">
+	<tr>
+	<td>{{task.Place}}</td>
+	</tr>
+	</table>
+</div>
+	
+  
+	<div class="row">
+      <br> <p> </p>
+    </div>
+
+	<div class="row">
+	<p><b>LATTITUDE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+	<table border="1", cellspacing ="2",cellpadding ="3" , width="30%, colspan="3">
+	<tr>
+	<td>{{task.Lattitude}}</td>
+	</tr>
+	</table>
+	</div>
+
+  
+	<div class="row">
+      <br> <p> </p>
+    </div>
+	
+
+	<div class="row">
+        <p><b>LONGITUDE&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+	<table border="1", cellspacing ="2",cellpadding ="3" , width="30%, colspan="3">
+	<tr><td>{{task.Longitude}}</td>
+	</tr>
+	</table>
+	</div>
+	
+  
+	<div class="row">
+      <br> <p> </p>
+    </div>
+
+	<div class="row">
+	<p><b>ADDRESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+	<table border="1", cellspacing ="2",cellpadding ="3" , width="30%, colspan="3">
+	<tr><td>{{task.Address}}</td>
+	</tr>
+	</table>
+	</div>
+		
+
+  
+	<div class="row">
+      <br> <p> </p>
+    </div>
+
+	<div class="row">
+	<p><b>PLACE ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+	<table border="1", cellspacing ="2",cellpadding ="3" , width="30%, colspan="3">
+	<tr><td>{{task.place_id}}</td>
+	</tr>
+	</table>
+	</div>
+	      
+	
+   
+	<div class="row">
+      <br> <p> </p>
+    </div>
+
+	
+     
+</form>
+</div> 
+{% endfor %}
+     
+	
+
+<div class="card">
+<div class="card-body">
+	<a href="{{url_for('add')}}" class="btn btn-primary">Return Home</a>
+ </div>
+</div>
+
+
+ 
+{% endblock %}
